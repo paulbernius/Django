@@ -35,23 +35,26 @@
     <div class="container">
       <h1 style="text-align: center">Data for InspectionID:</h1>
       <table class="table">
-        <tr>
-          <th style="text-align: center">ConditionID</th>
-          <th class="bg-light" style="text-align: center">InspectionID</th>
-          <th style="text-align: center">Distance</th>
-          <th style="text-align: center">Code</th>
-        </tr>
-        {% for data in dataset %}
-        <tr>
-          <td style="text-align: center">{{ data.ConditionID }}</td>
-          <td class="bg-light" style="text-align: center">
-            {{ data.InspectionID }}
-          </td>
-          <td style="text-align: center">{{ data.Distance}}</td>
-          <td style="text-align: center">{{ data.Code}}</td>
-        </tr>
-
-        {% endfor %}
+        <thead>
+          <tr>
+            <th style="text-align: center">ConditionID</th>
+            <th class="bg-light" style="text-align: center">InspectionID</th>
+            <th style="text-align: center">Distance</th>
+            <th style="text-align: center">Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in dataset %}
+          <tr>
+            <td style="text-align: center">{{ data.ConditionID }}</td>
+            <td class="bg-light" style="text-align: center">
+              {{ data.InspectionID }}
+            </td>
+            <td style="text-align: center">{{ data.Distance}}</td>
+            <td style="text-align: center">{{ data.Code}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
       </table>
     </div>
   </body>
