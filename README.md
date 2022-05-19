@@ -155,9 +155,11 @@ $ python3 manage.py migrate
 ```
 - Step 7 Create Superuser: ```$ python3 manage.py createsuperuser```
 - Step 8 Run server: ```$ python3 manage.py runserver```
+<br/><br/>
+Note: Some machines may require the argument ```python``` instead of ```python3```
 
 ### Challenges
-While developing this project I did encounter some problems.<br/><br/>
+While developing this project I did encounter some challenges.<br/><br/>
 
 #### Challenge 1 (Presenting the InspectionID the user is viewing in Detail view (Table 2)):
 To read data from a data model in Django, you must insert the data into a *context* dict. This allows the developer to dynamically create componenets.<br/><br/>
@@ -170,7 +172,7 @@ Adding this line allowed me to access to the requested InspectionID from the use
 ```python
 context["InspectionID"] = InspectionID
 ```
-Now in the HTML code, I can use ```{{ InspectionID }}``` to access the requested InspectionID
+Now, in the HTML code, I can use ```{{ InspectionID }}``` to access the requested InspectionID
 <br/><br/>
 
 #### Challenge 2 (While creating user 'Client' Django default auth api wouldn't allow usernames and passwords to be similar):
@@ -191,8 +193,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 ```
-<br/>The ```UserAttributeSimilarityValidator``` attribute prevents passwords being created that are too similar to the user name. Because of this attribute, I was initially unable to create the requested password for user 'Client'.<br/><br/>
-To Fix this, I removed ```UserAttributeSimilarityValidator``` from ```AUTH_PASSWORD_VALIDATORS```, allowing users to create passwords that are similar to their usernames.
+<br/>The ```UserAttributeSimilarityValidator``` attribute prevents passwords from being created that are too similar to the user name. Because of this attribute, I was initially unable to create the requested password for user 'Client'.<br/><br/>
+To fix this, I removed ```UserAttributeSimilarityValidator``` from ```AUTH_PASSWORD_VALIDATORS```, allowing users to create passwords that are similar to their usernames.
 <br/><br/>
 
 
@@ -203,7 +205,7 @@ In early development of this project, when the user requested ```http://localhos
 <br/><br/>
 Upon reading Python documentation, I found how to use <a href="https://svn.python.org/projects/external/Jinja-2.1.1/docs/_build/html/api.html">Jinja</a> to create if-else statements inline with HTML code.
 <br/><br/>
-Adding this code in my home HTML file allowed me determine whether or not a user has been authenticated or not. If so, display the home page. If not, request the user to login.
+Adding this code in my ```home.html``` file allowed me to determine whether or not a user has been authenticated. If so, display the home page. If not, request the user to login.
 ```
 {% if user.is_authenticated %}
 {% else %}
