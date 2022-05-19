@@ -18,9 +18,11 @@
     </script> 
   </head>
   <body>
+    
     <div class="container">
-      <table class="table table-hover">
+      <table class="table table-hover align-middle">
           <h1 style="text-align: center;">Table 1</h1>
+          <thead>
         <tr>
           <th scope="col" style="text-align: center;">InspectionID</th>
           <th scope="col" style="text-align: center;">PipeID</th>
@@ -28,6 +30,8 @@
           <th scope="col" style="text-align: center;">Width</th>
           <th scope="col" style="text-align: center;">Rating</th>
         </tr>
+      </thead>
+      <tbody>
         {% for data in dataset %}
         <tr class="clickable-row" data-link="./{{ data.InspectionID }}/detail">
           <td scope="row" style="text-align: center;">{{ data.InspectionID }}</a>
@@ -37,6 +41,7 @@
           <td style="text-align: center;">{{ data.Rating}}</td>
         </tr>
         {% endfor %}
+      </tbody>
       </table>
       <script type="text/javascript">
         $(function() {        

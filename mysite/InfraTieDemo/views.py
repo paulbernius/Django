@@ -2,6 +2,7 @@ from dataclasses import field
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Table1, Table2
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -12,6 +13,14 @@ def index(request):
     context = {}
     context["dataset"] = Table1.objects.all()
     return render(request, "table1_list_view.html", context)
+
+def home(request):
+    model = Table1
+    fields = ['InspectionID', 'PipeID', 'Length', 'Width', 'Rating']
+    context = {}
+    context["dataset"] = Table1.objects.all()
+    return render(request, "home.html", context)
+    
 
 
 def detail(request, InspectionID):
@@ -24,3 +33,17 @@ def detail(request, InspectionID):
 
 def login(request):
     return render(request, 'login.html')
+
+# def login(request):
+#    username = request.POST['username']
+#    password = request.POST['password']
+#    user = authenticate(request, username=username, password=password)
+#    if user is not None:
+#        login(request, user)
+#        # Redirect to a success page.
+#        index(request)
+#        ...
+#    else:
+#        # Return an 'invalid login' error message.
+#
+#        ...
