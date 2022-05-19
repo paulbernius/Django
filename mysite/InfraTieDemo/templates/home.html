@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
+<!-- Extend base.html (Child) -->
 
 {% block title %}Home{% endblock %}
+<!-- Set title -->
 
+<!-- Block containg if-else -->
 {% block content %}
 
-{% if user.is_authenticated %}
+<!-- Check if user has logged in -->
+{% if user.is_authenticated %} <!-- If true execute the following -->
+
+    <!-- Bootstrap NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a style="cursor: pointer;" class="navbar-brand" onclick="window.location.href='{% url 'home' %}';">{{ user.username }}</a>
@@ -13,9 +19,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a style="cursor: pointer;" class="nav-link active" aria-current="page" onclick="window.location.href='{% url 'home' %}';">Home</a>
-              </li>
+                <li class="nav-item">
+                    <a style="cursor: pointer;" class="nav-link active" aria-current="page" onclick="window.location.href='{% url 'home' %}';">Home</a>
+                </li>
             </ul>
             
           </div>
@@ -28,44 +34,47 @@
       </nav>
 
     <br/>
+
+    <!-- Table1 Data -->
     <div class="container" style="text-align: center;">
         <table class="table table-hover align-middle">
             <h1 style="text-align: center;">Table 1</h1>
             <thead>
-          <tr>
-            <th scope="col" style="text-align: center;">InspectionID</th>
-            <th scope="col" style="text-align: center;">PipeID</th>
-            <th scope="col" style="text-align: center;">Length</th>
-            <th scope="col" style="text-align: center;">Width</th>
-            <th scope="col" style="text-align: center;">Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for data in dataset %}
-          <tr class="clickable-row" data-link="./{{ data.InspectionID }}/detail">
-            <td scope="row" style="text-align: center;">{{ data.InspectionID }}</a>
-            <td style="text-align: center;">{{ data.PipeID }}</td>
-            <td style="text-align: center;">{{ data.Length}}</td>
-            <td style="text-align: center;">{{ data.Width}}</td>
-            <td style="text-align: center;">{{ data.Rating}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
+            <tr>
+                <th scope="col" style="text-align: center;">InspectionID</th>
+                <th scope="col" style="text-align: center;">PipeID</th>
+                <th scope="col" style="text-align: center;">Length</th>
+                <th scope="col" style="text-align: center;">Width</th>
+                <th scope="col" style="text-align: center;">Rating</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- For loop to insert data -->
+                {% for data in dataset %}
+                <tr class="clickable-row" data-link="./{{ data.InspectionID }}/detail">
+                    <td scope="row" style="text-align: center;">{{ data.InspectionID }}</a>
+                    <td style="text-align: center;">{{ data.PipeID }}</td>
+                    <td style="text-align: center;">{{ data.Length}}</td>
+                    <td style="text-align: center;">{{ data.Width}}</td>
+                    <td style="text-align: center;">{{ data.Rating}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
         
+        <!-- Script to make rows clickable -->
         <script type="text/javascript">
-          $(function() {        
-             $("tr[data-link]").click(function() {
-               window.location = this.dataset.link
-             });
-          });
-         </script>
+        $(function() {        
+            $("tr[data-link]").click(function() {
+                window.location = this.dataset.link
+            });
+        });
+        </script>
       </div>
-{% else %}
+{% else %} <!-- If false execute the following -->
     <div class="container" style="text-align: center;">
         <h1 style="text-align: center;">You are not logged in</h1>
         <input class="btn btn-primary" type="button" onclick="window.location.href='{% url 'login' %}';" value="Log In" />
-
     </div>
 {% endif %}
 
