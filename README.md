@@ -171,9 +171,43 @@ Adding this line allowed me to access to the requested InspectionID from the use
 context["InspectionID"] = InspectionID
 ```
 Now in the HTML code, I can use ```{{ InspectionID }}``` to access the requested InspectionID
+<br/><br/>
 
 #### Challenge 2 (While creating user 'Client' Django default auth api wouldn't allow usernames and passwords to be similar):
+Django, by default, has APIs to handle password verification.<br/><br/>
+```python
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+```
+<br/>The ```UserAttributeSimilarityValidator``` attribute prevents passwords being created that are too similar to the user name. Because of this attribute, I was initially unable to create the requested password for user 'Client'.<br/><br/>
+To Fix this, I removed ```UserAttributeSimilarityValidator``` from ```AUTH_PASSWORD_VALIDATORS```, allowing users to create passwords that are similar to their usernames.
+
+
 #### Challenge 3 (Application determining whether or not a user is currently logged in):
+Django has libraries that handle many things, but specific to this challenge, it has an authentication library.
+<br/><br/>
+In early development of this project, when the user requested ```http://localhost:8000```, they could bypass the login page and access the data without authentication.
+<br/><br/>
+Upon reading Python documentation, I found how to use <a href="https://svn.python.org/projects/external/Jinja-2.1.1/docs/_build/html/api.html">Jinja</a> to create if-else statements inline with HTML code.
+<br/><br/>
+Adding this code in my home HTML file allowed me determine whether or not a user has been authenticated or not. If so, display the home page. If not, request the user to login.
+```
+{% if user.is_authenticated %}
+{% else %}
+{% endif %}
+```
 
 
 ### Usage
@@ -181,7 +215,7 @@ Now in the HTML code, I can use ```{{ InspectionID }}``` to access the requested
 After installation, the project should be running at http://localhost:8000
 ![Screen Shot 2022-05-18 at 8 59 43 PM](https://user-images.githubusercontent.com/100249266/169187718-e7abcfee-d1fc-476a-97cd-b019796f8067.png?raw=true)
 
-Since this the first time the user has visited the web-application, the user will not be logged in.<br/>
+Since this is the first time the user has visited the web-application, the user will not be logged in.<br/>
 To log in, click the 'Log In' button. <br/>
 The user will then be presented with a login form.
 ![Screen Shot 2022-05-18 at 9 01 57 PM](https://user-images.githubusercontent.com/100249266/169187851-713512e7-44d4-423b-98b6-c973e27c7a8a.png)
