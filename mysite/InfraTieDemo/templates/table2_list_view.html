@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Details</title>
+
+    <!-- Bootstrap CSS & JS -->
+    <!-- This could've all been added to an external file to reduce redundant text -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -32,6 +35,8 @@
     ></script>
   </head>
   <body>
+
+    <!-- Bootstrap NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
           <a style="cursor: pointer;" class="navbar-brand" onclick="window.location.href='{% url 'home' %}';">{{ user.username }}</a>
@@ -44,18 +49,21 @@
               <a style="cursor: pointer;" class="nav-link active" aria-current="page" onclick="window.location.href='{% url 'home' %}';">Home</a>
             </li>
           </ul>
-          
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
               <input class="btn btn-primary" type="button" onclick="window.location.href='{% url 'logout' %}';" value="Log Out" >
             </li>
-      </ul>
+        </ul>
       </div>
     </nav>
 
+    <br/>
+
+    <!-- Table1 Data (With InspectionID = requested ID)-->
     <div class="container">
-      <h1 style="text-align: center">Data for InspectionID:</h1>
+      <h1 style="text-align: center">Data for InspectionID: {{ InspectionID }}
+    </h1>
       <table class="table">
         <thead>
           <tr>
@@ -66,12 +74,11 @@
           </tr>
         </thead>
         <tbody>
+          <!-- For loop to insert data -->
           {% for data in dataset %}
           <tr>
             <td style="text-align: center">{{ data.ConditionID }}</td>
-            <td class="bg-light" style="text-align: center">
-              {{ data.InspectionID }}
-            </td>
+            <td class="bg-light" style="text-align: center">{{ data.InspectionID }}</td>
             <td style="text-align: center">{{ data.Distance}}</td>
             <td style="text-align: center">{{ data.Code}}</td>
           </tr>

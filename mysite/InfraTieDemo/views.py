@@ -1,49 +1,25 @@
-from dataclasses import field
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import Table1, Table2
-from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
-
-def index(request):
-    model = Table1
-    fields = ['InspectionID', 'PipeID', 'Length', 'Width', 'Rating']
-    context = {}
-    context["dataset"] = Table1.objects.all()
-    return render(request, "table1_list_view.html", context)
-
+# Home View
 def home(request):
-    model = Table1
-    fields = ['InspectionID', 'PipeID', 'Length', 'Width', 'Rating']
-    context = {}
-    context["dataset"] = Table1.objects.all()
-    return render(request, "home.html", context)
+    model = Table1 # Use Table1 for model
+    fields = ['InspectionID', 'PipeID', 'Length', 'Width', 'Rating'] # Use these fields from model
+    context = {} # Init context
+    context["dataset"] = Table1.objects.all() # Fill context dict with all objects in Table1
+    return render(request, "home.html", context) # Render with request, source, and context dict
     
-
-
+# Detail View
 def detail(request, InspectionID):
-    model = Table2
-    fields = ['ConditionID', 'InspectionID', 'Distance', 'Code']
-    context = {}
-    context["dataset"] = Table2.objects.filter(InspectionID=InspectionID)
-    return render(request, "table2_list_view.html", context)
+    model = Table2 # Use Table2 for model
+    fields = ['ConditionID', 'InspectionID', 'Distance', 'Code'] # Use these fields from model
+    context = {} # Init context
+    context["dataset"] = Table2.objects.filter(InspectionID=InspectionID) # Fill context dict with all objects in Table2
+    context["InspectionID"] = InspectionID # Get InspectionID
+    return render(request, "table2_list_view.html", context) # Render with request, source, and context dict
 
-
+# Login View
 def login(request):
-    return render(request, 'login.html')
-
-# def login(request):
-#    username = request.POST['username']
-#    password = request.POST['password']
-#    user = authenticate(request, username=username, password=password)
-#    if user is not None:
-#        login(request, user)
-#        # Redirect to a success page.
-#        index(request)
-#        ...
-#    else:
-#        # Return an 'invalid login' error message.
-#
-#        ...
+    return render(request, 'login.html') # Render with request and source

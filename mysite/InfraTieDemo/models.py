@@ -3,6 +3,13 @@ from django.db import models
 
 # Create your models here.
 
+#
+# Models created based from project description
+# Table1 - InspectionID is primary
+# Table2 - ConditionID is primary
+# Table2 - InspectionID is forien key relating to Table1
+#
+
 
 class Table1(models.Model):
     InspectionID = models.IntegerField(primary_key=True)

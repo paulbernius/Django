@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '/InfraTieDemo/templates')],
+        'DIRS': [os.path.join(BASE_DIR, '/InfraTieDemo/templates')], # Add user created templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC' # I couldn't find documentation relating to timezone formats, so I left it at UTC
 
 USE_I18N = True
 
@@ -124,6 +124,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "home" # Change login redirect
 
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home" # Add logout redirect
