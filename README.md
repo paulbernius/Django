@@ -173,8 +173,8 @@ context["InspectionID"] = InspectionID
 ```
 Now in the HTML code, I can use ```{{ InspectionID }}``` to access the requested InspectionID
 
-#### Challenge 2:
-#### Challenge 3:
+#### Challenge 2 (While creating user 'Client' Django default auth api wouldn't allow usernames and passwords to be similar):
+#### Challenge 3 (Application determining whether or not a user is currently logged in):
 
 
 ### Usage
