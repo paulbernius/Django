@@ -15,6 +15,7 @@
 ### Description
 This project was created to demonstrate my skills within the Django framework for Python
 <br/>
+The [Bootstrap](https://getbootstrap.com) CSS & JavaScript framework was used to style this project.
 #### Project Requirements:
 - Develop a web-based database application with Django
 - Create login page
@@ -219,23 +220,23 @@ After installation, the project should be running at http://localhost:8000
 Since this is the first time the user has visited the web-application, the user will not be logged in.<br/>
 To log in, click the 'Log In' button. <br/>
 The user will then be presented with a login form.
-![Screen Shot 2022-05-18 at 9 01 57 PM](https://user-images.githubusercontent.com/100249266/169187851-713512e7-44d4-423b-98b6-c973e27c7a8a.png)
+![Screen Shot 2022-05-18 at 9 01 57 PM](https://user-images.githubusercontent.com/100249266/169187851-713512e7-44d4-423b-98b6-c973e27c7a8a.png?raw=true)
 
 The default login credentials are:<br/>
 Username: ```Client```<br/>
 Password: ```Client1234!```
-![Screen Shot 2022-05-18 at 9 03 48 PM](https://user-images.githubusercontent.com/100249266/169188041-1a8100a9-6b34-4b66-acbe-7d63e3d58247.png)
+![Screen Shot 2022-05-18 at 9 03 48 PM](https://user-images.githubusercontent.com/100249266/169188041-1a8100a9-6b34-4b66-acbe-7d63e3d58247.png?raw=true)
 
 Once the user has logged in, they will presented with data from Table 1.
 From this page the user can:
 - Request data from Table 2
 - Logout
-![Screen Shot 2022-05-18 at 9 05 00 PM](https://user-images.githubusercontent.com/100249266/169188157-39366677-daec-42b9-a4d0-2d3f4305d98e.png)
+![Screen Shot 2022-05-18 at 9 05 00 PM](https://user-images.githubusercontent.com/100249266/169188157-39366677-daec-42b9-a4d0-2d3f4305d98e.png?raw=true)
 
 If a user clicks on any row, the application will present data in Table 2 relating to the data selected in Table 1.
-- InspectionID 1: ![Screen Shot 2022-05-18 at 9 05 58 PM](https://user-images.githubusercontent.com/100249266/169188265-132e19cd-959a-44b7-bba3-a6d0e4dc93c9.png)
-- InspectionID 2: ![Screen Shot 2022-05-18 at 9 06 17 PM](https://user-images.githubusercontent.com/100249266/169188292-01f372c4-cee1-4c73-810b-f5732eef1393.png)
-- InspectionID 3: ![Screen Shot 2022-05-18 at 9 06 34 PM](https://user-images.githubusercontent.com/100249266/169188324-e7dc3b53-4f42-4a80-aea8-4e8c6911eb3e.png)
+- InspectionID 1: ![Screen Shot 2022-05-18 at 9 05 58 PM](https://user-images.githubusercontent.com/100249266/169188265-132e19cd-959a-44b7-bba3-a6d0e4dc93c9.png?raw=true)
+- InspectionID 2: ![Screen Shot 2022-05-18 at 9 06 17 PM](https://user-images.githubusercontent.com/100249266/169188292-01f372c4-cee1-4c73-810b-f5732eef1393.png?raw=true)
+- InspectionID 3: ![Screen Shot 2022-05-18 at 9 06 34 PM](https://user-images.githubusercontent.com/100249266/169188324-e7dc3b53-4f42-4a80-aea8-4e8c6911eb3e.png?raw=true)
 
 If the user is viewing data from Table 2, they may press the 'Home' button or their username to return to the Home page.
 
