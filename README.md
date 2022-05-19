@@ -193,6 +193,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ```
 <br/>The ```UserAttributeSimilarityValidator``` attribute prevents passwords being created that are too similar to the user name. Because of this attribute, I was initially unable to create the requested password for user 'Client'.<br/><br/>
 To Fix this, I removed ```UserAttributeSimilarityValidator``` from ```AUTH_PASSWORD_VALIDATORS```, allowing users to create passwords that are similar to their usernames.
+<br/><br/>
 
 
 #### Challenge 3 (Application determining whether or not a user is currently logged in):
