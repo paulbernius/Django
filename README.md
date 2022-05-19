@@ -242,7 +242,9 @@ If the user is viewing data from Table 2, they may press the 'Home' button or th
 
 ### Contact-Information
 [Github Profile](https://github.com/paulbernius)
-<br/><br/>
+<br/>
+[My Webpage](https://cs.okstate.edu/~pberniu)
+<br/>
 paul.bernius@okstate.edu
 
 
