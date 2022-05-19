@@ -3,6 +3,7 @@
 
 <a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-undefined-brightgreen"></a>
 <a href="https://www.python.org/about/gettingstarted/"><img src="https://img.shields.io/badge/Language-Python-yellow"></a>
+<a href="[https://www.python.org/about/gettingstarted/](https://www.djangoproject.com)"><img src="https://img.shields.io/badge/Framework-Django-green"></a>
 
 
 ## :book: Table of Contents
