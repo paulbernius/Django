@@ -158,6 +158,24 @@ $ python3 manage.py migrate
 - Step 8 Run server: ```$ python3 manage.py runserver```
 
 ### Challenges
+While developing this project I did encounter some problems.<br/><br/>
+
+#### Challenge 1 (Presenting the InspectionID the user is viewing in Detail view (Table 2)):
+To read data from a data model in Django, you must insert the data into a *context* dict. This allows the developer to dynamically create componenets.<br/><br/>
+The challenge I faced with this is accessing a single value from the dictionary. While I could easily create a dynamic table with the data, I was having trouble accessing a single value (InspectionID). A better understanding of how Python's dictionaries work would've helped during the development.<br/><br/>
+To overcome this challenege, I used the Django documentation to better understand the context dictionary. Initially, I had this single line to access the data model:
+```python
+context["dataset"] = Table2.objects.filter(InspectionID=InspectionID)
+```
+Adding this line allowed me to access to the requested InspectionID from the user:
+```python
+context["InspectionID"] = InspectionID
+```
+Now in the HTML code, I can use ```{{ InspectionID }}``` to access the requested InspectionID
+
+#### Challenge 2:
+#### Challenge 3:
+
 
 ### Usage
 
@@ -171,7 +189,7 @@ The user will then be presented with a login form.
 
 The default login credentials are:<br/>
 Username: ```Client```<br/>
-Password: ```User1234!```
+Password: ```Client1234!```
 ![Screen Shot 2022-05-18 at 9 03 48 PM](https://user-images.githubusercontent.com/100249266/169188041-1a8100a9-6b34-4b66-acbe-7d63e3d58247.png)
 
 Once the user has logged in, they will presented with data from Table 1.
